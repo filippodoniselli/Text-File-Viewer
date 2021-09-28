@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31129.286
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Class_Library", "Class_Library\Class_Library.csproj", "{AF3BCD26-25FE-4808-BA57-5EBBC80FA802}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xaml_UI", "xaml_UI\xaml_UI.csproj", "{31D3D027-541A-46EF-97C7-5BB0C783F76B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Windows_Form_UI", "Windows_Form_UI\Windows_Form_UI.csproj", "{652116F9-5E7C-4816-8A30-9365A5426635}"
@@ -15,10 +13,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{AF3BCD26-25FE-4808-BA57-5EBBC80FA802}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AF3BCD26-25FE-4808-BA57-5EBBC80FA802}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AF3BCD26-25FE-4808-BA57-5EBBC80FA802}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AF3BCD26-25FE-4808-BA57-5EBBC80FA802}.Release|Any CPU.Build.0 = Release|Any CPU
 		{31D3D027-541A-46EF-97C7-5BB0C783F76B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{31D3D027-541A-46EF-97C7-5BB0C783F76B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{31D3D027-541A-46EF-97C7-5BB0C783F76B}.Release|Any CPU.ActiveCfg = Release|Any CPU

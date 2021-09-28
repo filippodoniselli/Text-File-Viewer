@@ -29,23 +29,23 @@ namespace Windows_Form_UI
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.instructionLabel = new System.Windows.Forms.Label();
             this.pathButton = new System.Windows.Forms.Button();
-            this.pathLabel = new System.Windows.Forms.Label();
             this.fileChose = new System.Windows.Forms.OpenFileDialog();
-            this.showButton = new System.Windows.Forms.Button();
-            this.clearButton = new System.Windows.Forms.Button();
+            this.resetButton = new System.Windows.Forms.Button();
             this.textBox = new System.Windows.Forms.TextBox();
+            this.pathBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // instructionLabel
             // 
             this.instructionLabel.AutoSize = true;
-            this.instructionLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.instructionLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.instructionLabel.ForeColor = System.Drawing.SystemColors.ControlText;
             this.instructionLabel.Location = new System.Drawing.Point(33, 32);
             this.instructionLabel.Name = "instructionLabel";
-            this.instructionLabel.Size = new System.Drawing.Size(393, 21);
+            this.instructionLabel.Size = new System.Drawing.Size(425, 22);
             this.instructionLabel.TabIndex = 0;
             this.instructionLabel.Text = "Choose a file to visualize (txt, config, xml, json, ini)";
             // 
@@ -62,77 +62,67 @@ namespace Windows_Form_UI
             this.pathButton.UseVisualStyleBackColor = false;
             this.pathButton.Click += new System.EventHandler(this.ChooseFilePath);
             // 
-            // pathLabel
-            // 
-            this.pathLabel.AutoSize = true;
-            this.pathLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pathLabel.Location = new System.Drawing.Point(201, 94);
-            this.pathLabel.Name = "pathLabel";
-            this.pathLabel.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
-            this.pathLabel.Size = new System.Drawing.Size(10, 20);
-            this.pathLabel.TabIndex = 2;
-            // 
             // fileChose
             // 
             this.fileChose.Filter = "Valid text file|*.txt;*.config;*.ini;*.xml;*.json";
             this.fileChose.FileOk += new System.ComponentModel.CancelEventHandler(this.ShowPathFile);
             // 
-            // showButton
+            // resetButton
             // 
-            this.showButton.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.showButton.Enabled = false;
-            this.showButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.showButton.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.showButton.Location = new System.Drawing.Point(37, 147);
-            this.showButton.Name = "showButton";
-            this.showButton.Size = new System.Drawing.Size(129, 33);
-            this.showButton.TabIndex = 3;
-            this.showButton.Text = "Show file\'s text";
-            this.showButton.UseVisualStyleBackColor = false;
-            this.showButton.Click += new System.EventHandler(this.ShowText);
-            // 
-            // clearButton
-            // 
-            this.clearButton.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.clearButton.Enabled = false;
-            this.clearButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clearButton.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.clearButton.Location = new System.Drawing.Point(205, 147);
-            this.clearButton.Name = "clearButton";
-            this.clearButton.Size = new System.Drawing.Size(129, 33);
-            this.clearButton.TabIndex = 6;
-            this.clearButton.Text = "Clear text";
-            this.clearButton.UseVisualStyleBackColor = false;
-            this.clearButton.Click += new System.EventHandler(this.ClearText);
+            this.resetButton.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.resetButton.Enabled = false;
+            this.resetButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.resetButton.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.resetButton.Location = new System.Drawing.Point(37, 88);
+            this.resetButton.Name = "resetButton";
+            this.resetButton.Size = new System.Drawing.Size(129, 33);
+            this.resetButton.TabIndex = 6;
+            this.resetButton.Text = "Reset";
+            this.resetButton.UseVisualStyleBackColor = false;
+            this.resetButton.Visible = false;
+            this.resetButton.Click += new System.EventHandler(this.ClearText);
             // 
             // textBox
             // 
-            this.textBox.Location = new System.Drawing.Point(37, 205);
+            this.textBox.Location = new System.Drawing.Point(37, 144);
             this.textBox.Multiline = true;
             this.textBox.Name = "textBox";
             this.textBox.ReadOnly = true;
             this.textBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBox.Size = new System.Drawing.Size(725, 185);
+            this.textBox.Size = new System.Drawing.Size(725, 267);
             this.textBox.TabIndex = 7;
             this.textBox.Visible = false;
+            // 
+            // pathBox
+            // 
+            this.pathBox.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.pathBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pathBox.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.pathBox.Location = new System.Drawing.Point(200, 88);
+            this.pathBox.Multiline = true;
+            this.pathBox.Name = "pathBox";
+            this.pathBox.ReadOnly = true;
+            this.pathBox.Size = new System.Drawing.Size(562, 33);
+            this.pathBox.TabIndex = 8;
+            this.pathBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.pathBox.Visible = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.pathBox);
             this.Controls.Add(this.textBox);
-            this.Controls.Add(this.clearButton);
-            this.Controls.Add(this.showButton);
-            this.Controls.Add(this.pathLabel);
+            this.Controls.Add(this.resetButton);
             this.Controls.Add(this.pathButton);
             this.Controls.Add(this.instructionLabel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.ShowIcon = false;
-            this.ShowInTaskbar = false;
-            this.Text = "TextViewer";
+            this.Text = "Text Viewer";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -143,11 +133,10 @@ namespace Windows_Form_UI
 
         private System.Windows.Forms.Label instructionLabel;
         private System.Windows.Forms.Button pathButton;
-        private System.Windows.Forms.Label pathLabel;
         private System.Windows.Forms.OpenFileDialog fileChose;
-        private System.Windows.Forms.Button showButton;
-        private System.Windows.Forms.Button clearButton;
+        private System.Windows.Forms.Button resetButton;
         private System.Windows.Forms.TextBox textBox;
+        private System.Windows.Forms.TextBox pathBox;
     }
 }
 

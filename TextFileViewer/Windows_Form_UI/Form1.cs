@@ -30,25 +30,25 @@ namespace Windows_Form_UI
 
         private void ShowPathFile(object sender, CancelEventArgs e)
         {
-            pathLabel.Text = fileChose.FileName;
-            showButton.Enabled = true;
-        }
-
-        private void ShowText(object sender, EventArgs e)
-        {
+            pathBox.Text = fileChose.FileName;
+            pathBox.Visible = true;
             textBox.Visible = true;
-            textBox.Text = File.ReadAllText(pathLabel.Text);
-            clearButton.Enabled = true;
+            textBox.Text = File.ReadAllText(pathBox.Text);
+            pathButton.Visible = false;
+            resetButton.Visible = true;
+            resetButton.Enabled = true;            
         }
 
         private void ClearText(object sender, EventArgs e)
         {
+            pathButton.Visible = true;
             textBox.Visible = false;
             textBox.Text = "";
-            pathLabel.Text = "";
+            pathBox.Visible = false;
+            pathBox.Text = "";
             fileChose.FileName = "";
-            showButton.Enabled = false;
-            clearButton.Enabled = false;
+            resetButton.Visible = false;
+            resetButton.Enabled = false;
         }
     }
 }

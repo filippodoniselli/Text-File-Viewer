@@ -24,5 +24,10 @@ namespace xaml_UI
         {
             InitializeComponent();
         }
+
+        private void chooseButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

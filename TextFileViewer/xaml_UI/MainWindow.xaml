@@ -5,8 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:xaml_UI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="Text Viewer" Height="455.187" Width="812.968" Icon="ext_file_generic_filetype_icon_176256.ico">
+    <Grid Background="#FFB9D1EA">
+        <Grid.OpacityMask>
+            <SolidColorBrush Color="{DynamicResource MainBackground}"/>
+        </Grid.OpacityMask>
+        <TextBlock HorizontalAlignment="Left" Height="41" Margin="22,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="452" FontFamily="Microsoft YaHei" RenderTransformOrigin="0.493,0.591" FontWeight="Bold" FontSize="16"><Run Text="Choose a "/><Run Text="file to visualize (.txt, .config, .xml, .json, .ini"/><Run Text=")"/></TextBlock>
+        <Button x:Name="chooseButton" Content="Choose file" Height="40" Margin="22,65,639,0" VerticalAlignment="Top" FontFamily="Microsoft YaHei" FontSize="16" Click="chooseButton_Click">
+            <Button.Background>
+                <SolidColorBrush Color="#FF82B5FF"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="resetButton" Content="Reset" HorizontalAlignment="Left" Height="40" Margin="22,65,0,0" VerticalAlignment="Top" Width="144" FontFamily="Microsoft YaHei" FontSize="16" Background="#FF82B5FF" Visibility="Hidden"/>
+        <TextBox x:Name="pathBox" HorizontalAlignment="Left" Height="40" Margin="202,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="564" Background="#FF82B5FF" FontFamily="Microsoft YaHei" FontSize="16" TextAlignment="Center" Visibility="Hidden"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="257" Margin="22,138,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="744" FontFamily="Microsoft YaHei" FontSize="16" Visibility="Hidden"/>
+
     </Grid>
 </Window>

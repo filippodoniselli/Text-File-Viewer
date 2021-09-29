@@ -94,5 +94,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ext_file_generic_filetype_icon_176256.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="CV.JPG" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

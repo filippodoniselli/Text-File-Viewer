@@ -58,7 +58,7 @@ namespace Windows_Form_UI
             this.pathButton.Name = "pathButton";
             this.pathButton.Size = new System.Drawing.Size(129, 33);
             this.pathButton.TabIndex = 1;
-            this.pathButton.Text = "Path File";
+            this.pathButton.Text = "Choose file";
             this.pathButton.UseVisualStyleBackColor = false;
             this.pathButton.Click += new System.EventHandler(this.ChooseFilePath);
             // 

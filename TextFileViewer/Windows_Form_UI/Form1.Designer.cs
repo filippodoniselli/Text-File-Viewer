@@ -31,7 +31,7 @@ namespace Windows_Form_UI
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.instructionLabel = new System.Windows.Forms.Label();
-            this.pathButton = new System.Windows.Forms.Button();
+            this.chooseButton = new System.Windows.Forms.Button();
             this.fileChose = new System.Windows.Forms.OpenFileDialog();
             this.resetButton = new System.Windows.Forms.Button();
             this.textBox = new System.Windows.Forms.TextBox();
@@ -45,22 +45,22 @@ namespace Windows_Form_UI
             this.instructionLabel.ForeColor = System.Drawing.SystemColors.ControlText;
             this.instructionLabel.Location = new System.Drawing.Point(33, 32);
             this.instructionLabel.Name = "instructionLabel";
-            this.instructionLabel.Size = new System.Drawing.Size(425, 22);
+            this.instructionLabel.Size = new System.Drawing.Size(450, 22);
             this.instructionLabel.TabIndex = 0;
-            this.instructionLabel.Text = "Choose a file to visualize (txt, config, xml, json, ini)";
+            this.instructionLabel.Text = "Choose a file to visualize (.txt, .config, .xml, .json, .ini)";
             // 
             // pathButton
             // 
-            this.pathButton.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.pathButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pathButton.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.pathButton.Location = new System.Drawing.Point(37, 88);
-            this.pathButton.Name = "pathButton";
-            this.pathButton.Size = new System.Drawing.Size(129, 33);
-            this.pathButton.TabIndex = 1;
-            this.pathButton.Text = "Choose file";
-            this.pathButton.UseVisualStyleBackColor = false;
-            this.pathButton.Click += new System.EventHandler(this.ChooseFilePath);
+            this.chooseButton.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.chooseButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chooseButton.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.chooseButton.Location = new System.Drawing.Point(37, 88);
+            this.chooseButton.Name = "pathButton";
+            this.chooseButton.Size = new System.Drawing.Size(129, 33);
+            this.chooseButton.TabIndex = 1;
+            this.chooseButton.Text = "Choose file";
+            this.chooseButton.UseVisualStyleBackColor = false;
+            this.chooseButton.Click += new System.EventHandler(this.ChooseFilePath);
             // 
             // fileChose
             // 
@@ -73,13 +73,12 @@ namespace Windows_Form_UI
             this.resetButton.Enabled = false;
             this.resetButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.resetButton.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.resetButton.Location = new System.Drawing.Point(37, 88);
+            this.resetButton.Location = new System.Drawing.Point(633, 435);
             this.resetButton.Name = "resetButton";
             this.resetButton.Size = new System.Drawing.Size(129, 33);
             this.resetButton.TabIndex = 6;
             this.resetButton.Text = "Reset";
             this.resetButton.UseVisualStyleBackColor = false;
-            this.resetButton.Visible = false;
             this.resetButton.Click += new System.EventHandler(this.ClearText);
             // 
             // textBox
@@ -91,7 +90,6 @@ namespace Windows_Form_UI
             this.textBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.textBox.Size = new System.Drawing.Size(725, 267);
             this.textBox.TabIndex = 7;
-            this.textBox.Visible = false;
             // 
             // pathBox
             // 
@@ -105,7 +103,6 @@ namespace Windows_Form_UI
             this.pathBox.Size = new System.Drawing.Size(562, 33);
             this.pathBox.TabIndex = 8;
             this.pathBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.pathBox.Visible = false;
             // 
             // Form1
             // 
@@ -113,11 +110,11 @@ namespace Windows_Form_UI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(799, 494);
             this.Controls.Add(this.pathBox);
             this.Controls.Add(this.textBox);
             this.Controls.Add(this.resetButton);
-            this.Controls.Add(this.pathButton);
+            this.Controls.Add(this.chooseButton);
             this.Controls.Add(this.instructionLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -132,7 +129,7 @@ namespace Windows_Form_UI
         #endregion
 
         private System.Windows.Forms.Label instructionLabel;
-        private System.Windows.Forms.Button pathButton;
+        private System.Windows.Forms.Button chooseButton;
         private System.Windows.Forms.OpenFileDialog fileChose;
         private System.Windows.Forms.Button resetButton;
         private System.Windows.Forms.TextBox textBox;

@@ -1,17 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows;
+using Microsoft.Win32;
+using System.IO;
 
 namespace xaml_UI
 {
@@ -27,7 +16,23 @@ namespace xaml_UI
 
         private void chooseButton_Click(object sender, RoutedEventArgs e)
         {
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Filter = "Valid text extensions|*.txt;*.config;*.xml;*.json;*.ini"
+            };
+            openFileDialog.ShowDialog();
+            pathBox.Text = openFileDialog.FileName;
+            textBox.Text = File.ReadAllText(openFileDialog.FileName);
+            resetButton.IsEnabled = true;
+            chooseButton.IsEnabled = false;
+        }
 
+        private void resetButton_Click(object sender, RoutedEventArgs e)
+        {
+            textBox.Text = "";
+            pathBox.Text = "";
+            resetButton.IsEnabled = false;
+            chooseButton.IsEnabled = true;
         }
     }
 }

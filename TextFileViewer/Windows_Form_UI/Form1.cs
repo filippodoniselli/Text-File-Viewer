@@ -31,24 +31,18 @@ namespace Windows_Form_UI
         private void ShowPathFile(object sender, CancelEventArgs e)
         {
             pathBox.Text = fileChose.FileName;
-            pathBox.Visible = true;
-            textBox.Visible = true;
             textBox.Text = File.ReadAllText(pathBox.Text);
-            pathButton.Visible = false;
-            resetButton.Visible = true;
-            resetButton.Enabled = true;            
+            resetButton.Enabled = true;
+            chooseButton.Enabled = false;
         }
 
         private void ClearText(object sender, EventArgs e)
         {
-            pathButton.Visible = true;
-            textBox.Visible = false;
             textBox.Text = "";
-            pathBox.Visible = false;
             pathBox.Text = "";
             fileChose.FileName = "";
-            resetButton.Visible = false;
             resetButton.Enabled = false;
+            chooseButton.Enabled = true;
         }
     }
 }

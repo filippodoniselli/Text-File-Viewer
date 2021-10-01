@@ -1,12 +1,6 @@
 ﻿using System;
 using System.IO;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Windows_Form_UI
@@ -23,7 +17,7 @@ namespace Windows_Form_UI
             
         }
 
-        private void ChooseFilePath(object sender, EventArgs e)
+        private void ChooseFile(object sender, EventArgs e)
         {
             _ = fileChose.ShowDialog();
         }
@@ -32,16 +26,16 @@ namespace Windows_Form_UI
         {
             pathBox.Text = fileChose.FileName;
             textBox.Text = File.ReadAllText(pathBox.Text);
-            resetButton.Enabled = true;
+            changeButton.Enabled = true;
             chooseButton.Enabled = false;
         }
 
-        private void ClearText(object sender, EventArgs e)
+        private void ChangeFile(object sender, EventArgs e)
         {
             textBox.Text = "";
             pathBox.Text = "";
             fileChose.FileName = "";
-            resetButton.Enabled = false;
+            changeButton.Enabled = false;
             chooseButton.Enabled = true;
         }
     }

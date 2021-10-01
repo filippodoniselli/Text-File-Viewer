@@ -24,16 +24,16 @@ namespace xaml_UI
             {
                 pathBox.Text = openFileDialog.FileName;
                 textBox.Text = File.ReadAllText(openFileDialog.FileName);
-                resetButton.IsEnabled = true;
+                changeButton.IsEnabled = true;
                 chooseButton.IsEnabled = false;
             }
         }
 
-        private void ResetButton_Click(object sender, RoutedEventArgs e)
+        private void ChangeButton_Click(object sender, RoutedEventArgs e)
         {
             textBox.Text = "";
             pathBox.Text = "";
-            resetButton.IsEnabled = false;
+            changeButton.IsEnabled = false;
             chooseButton.IsEnabled = true;
         }
     }

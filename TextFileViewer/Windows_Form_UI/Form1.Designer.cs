@@ -33,7 +33,7 @@ namespace Windows_Form_UI
             this.instructionLabel = new System.Windows.Forms.Label();
             this.chooseButton = new System.Windows.Forms.Button();
             this.fileChose = new System.Windows.Forms.OpenFileDialog();
-            this.resetButton = new System.Windows.Forms.Button();
+            this.changeButton = new System.Windows.Forms.Button();
             this.textBox = new System.Windows.Forms.TextBox();
             this.pathBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
@@ -49,18 +49,21 @@ namespace Windows_Form_UI
             this.instructionLabel.TabIndex = 0;
             this.instructionLabel.Text = "Choose a file to visualize (.txt, .config, .xml, .json, .ini)";
             // 
-            // pathButton
+            // chooseButton
             // 
             this.chooseButton.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.chooseButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chooseButton.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.chooseButton.Image = ((System.Drawing.Image)(resources.GetObject("chooseButton.Image")));
             this.chooseButton.Location = new System.Drawing.Point(37, 88);
-            this.chooseButton.Name = "pathButton";
+            this.chooseButton.Name = "chooseButton";
             this.chooseButton.Size = new System.Drawing.Size(129, 33);
             this.chooseButton.TabIndex = 1;
             this.chooseButton.Text = "Choose file";
+            this.chooseButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.chooseButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.chooseButton.UseVisualStyleBackColor = false;
-            this.chooseButton.Click += new System.EventHandler(this.ChooseFilePath);
+            this.chooseButton.Click += new System.EventHandler(this.ChooseFile);
             // 
             // fileChose
             // 
@@ -69,17 +72,19 @@ namespace Windows_Form_UI
             // 
             // resetButton
             // 
-            this.resetButton.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.resetButton.Enabled = false;
-            this.resetButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.resetButton.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.resetButton.Location = new System.Drawing.Point(633, 435);
-            this.resetButton.Name = "resetButton";
-            this.resetButton.Size = new System.Drawing.Size(129, 33);
-            this.resetButton.TabIndex = 6;
-            this.resetButton.Text = "Reset";
-            this.resetButton.UseVisualStyleBackColor = false;
-            this.resetButton.Click += new System.EventHandler(this.ClearText);
+            this.changeButton.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.changeButton.Enabled = false;
+            this.changeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.changeButton.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.changeButton.Image = ((System.Drawing.Image)(resources.GetObject("resetButton.Image")));
+            this.changeButton.Location = new System.Drawing.Point(633, 435);
+            this.changeButton.Name = "resetButton";
+            this.changeButton.Size = new System.Drawing.Size(129, 33);
+            this.changeButton.TabIndex = 6;
+            this.changeButton.Text = "Change File";
+            this.changeButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.changeButton.UseVisualStyleBackColor = false;
+            this.changeButton.Click += new System.EventHandler(this.ChangeFile);
             // 
             // textBox
             // 
@@ -113,7 +118,7 @@ namespace Windows_Form_UI
             this.ClientSize = new System.Drawing.Size(799, 494);
             this.Controls.Add(this.pathBox);
             this.Controls.Add(this.textBox);
-            this.Controls.Add(this.resetButton);
+            this.Controls.Add(this.changeButton);
             this.Controls.Add(this.chooseButton);
             this.Controls.Add(this.instructionLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -131,7 +136,7 @@ namespace Windows_Form_UI
         private System.Windows.Forms.Label instructionLabel;
         private System.Windows.Forms.Button chooseButton;
         private System.Windows.Forms.OpenFileDialog fileChose;
-        private System.Windows.Forms.Button resetButton;
+        private System.Windows.Forms.Button changeButton;
         private System.Windows.Forms.TextBox textBox;
         private System.Windows.Forms.TextBox pathBox;
     }

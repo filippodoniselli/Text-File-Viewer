@@ -14,20 +14,22 @@ namespace xaml_UI
             InitializeComponent();
         }
 
-        private void chooseButton_Click(object sender, RoutedEventArgs e)
+        private void ChooseButton_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog
             {
                 Filter = "Valid text extensions|*.txt;*.config;*.xml;*.json;*.ini"
             };
-            openFileDialog.ShowDialog();
-            pathBox.Text = openFileDialog.FileName;
-            textBox.Text = File.ReadAllText(openFileDialog.FileName);
-            resetButton.IsEnabled = true;
-            chooseButton.IsEnabled = false;
+            if ((bool)openFileDialog.ShowDialog())
+            {
+                pathBox.Text = openFileDialog.FileName;
+                textBox.Text = File.ReadAllText(openFileDialog.FileName);
+                resetButton.IsEnabled = true;
+                chooseButton.IsEnabled = false;
+            }
         }
 
-        private void resetButton_Click(object sender, RoutedEventArgs e)
+        private void ResetButton_Click(object sender, RoutedEventArgs e)
         {
             textBox.Text = "";
             pathBox.Text = "";

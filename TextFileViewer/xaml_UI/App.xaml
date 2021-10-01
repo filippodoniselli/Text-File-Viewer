@@ -4,8 +4,6 @@
              xmlns:local="clr-namespace:xaml_UI"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-
         <Color x:Key="MainBackground">#FF66BFE0</Color>
-
     </Application.Resources>
 </Application>

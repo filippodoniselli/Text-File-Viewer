@@ -4,20 +4,36 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:xaml_UI"
+        xmlns:fa="http://schemas.fontawesome.io/icons/"
         mc:Ignorable="d"
-        Title="Text Viewer" Height="566.073" Width="815.584" Icon="ext_file_generic_filetype_icon_176256.ico" WindowStyle="ThreeDBorderWindow">
-    <Window.BorderBrush>
-        <SolidColorBrush Color="{DynamicResource MainBackground}"/>
-    </Window.BorderBrush>
+        Title="Text Viewer" Height="566.073" Width="815.584" Icon="ext_file_generic_filetype_icon_176256.ico" Foreground="{x:Null}" Background="{x:Null}" ResizeMode="CanMinimize">
     <Grid Background="#FFB9D1EA" Margin="0,0,2,0">
         <Grid.OpacityMask>
             <SolidColorBrush Color="{DynamicResource MainBackground}"/>
         </Grid.OpacityMask>
-        <TextBlock HorizontalAlignment="Left" Height="41" Margin="22,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="452" FontFamily="Microsoft YaHei" RenderTransformOrigin="0.493,0.591" FontWeight="Bold" FontSize="16"><Run Text="Choose a "/><Run Text="file to visualize (.txt, .config, .xml, .json, .ini"/><Run Text=")"/></TextBlock>
-        <Button x:Name="chooseButton" Content="Choose file" Height="40" Margin="22,65,640,0" VerticalAlignment="Top" FontFamily="Microsoft YaHei" FontSize="16" Click="chooseButton_Click"  Background="#FF82B5FF"/>
-        <Button x:Name="resetButton" Content="Reset" HorizontalAlignment="Left" Height="40" Margin="622,428,0,0" VerticalAlignment="Top" Width="144" FontFamily="Microsoft YaHei" FontSize="16" Click="resetButton_Click" Background="#FF82B5FF" IsEnabled="False"/>
-        <TextBox x:Name="pathBox" HorizontalAlignment="Left" Height="40" Margin="202,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="564" Background="#FF82B5FF" FontFamily="Microsoft YaHei" FontSize="16" TextAlignment="Center"/>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="257" Margin="22,141,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="744" FontFamily="Microsoft YaHei" FontSize="16" BorderBrush="#FF82B5FF" BorderThickness="2"/>
+        <TextBlock HorizontalAlignment="Left" Height="41" Margin="22,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="452" FontFamily="Microsoft YaHei" RenderTransformOrigin="0.493,0.591" FontWeight="Bold" FontSize="16" Foreground="#FF0D3957"><Run Text="Choose a "/><Run Text="file to visualize (.txt, .config, .xml, .json, .ini"/><Run Text=")"/></TextBlock>
+        <Button x:Name="chooseButton" Margin="22,65,0,0" FontFamily="Microsoft YaHei" FontSize="16" Click="ChooseButton_Click"  Background="#FF82B5FF" HorizontalAlignment="Left" Width="144" Height="40" VerticalAlignment="Top">
+            <StackPanel Orientation="Horizontal">
+                <fa:ImageAwesome Icon="Search" Height="20">
+                    <fa:ImageAwesome.Foreground>
+                        <SolidColorBrush Color="#FF0D3957"/>
+                    </fa:ImageAwesome.Foreground>
+                </fa:ImageAwesome>
+                <TextBlock Text="Choose file" Height="25" Width="89" Margin="10,0,0,0" Foreground="#FF0D3957"/>
+            </StackPanel>
+        </Button>
+        <Button x:Name="resetButton" HorizontalAlignment="Left" Height="40" Margin="622,428,0,0" VerticalAlignment="Top" Width="144" FontFamily="Microsoft YaHei" FontSize="16" Click="ResetButton_Click" Background="#FF82B5FF" Foreground="#FF0D3957" IsEnabled="False">
+            <StackPanel Orientation="Horizontal">
+                <fa:ImageAwesome Icon="Refresh" Height="20">
+                    <fa:ImageAwesome.Foreground>
+                        <SolidColorBrush Color="#FF0D3957"/>
+                    </fa:ImageAwesome.Foreground>
+                </fa:ImageAwesome>
+                <TextBlock Text="Change file" Height="25" Width="89" Margin="10,0,0,0" Foreground="#FF0D3957"/>
+            </StackPanel>
+        </Button>
+        <TextBox x:Name="pathBox" Margin="202,65,0,0" TextWrapping="Wrap" Background="#FF82B5FF" FontFamily="Microsoft YaHei" FontSize="18" TextAlignment="Center" Foreground="White" SelectionTextBrush="Black" FontWeight="Bold" Padding="0,5,0,0" HorizontalAlignment="Left" Width="564" Height="40" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="257" Margin="22,141,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="744" FontFamily="Microsoft YaHei" FontSize="16" BorderBrush="#FF82B5FF" BorderThickness="2" VerticalScrollBarVisibility="Auto"/>
 
     </Grid>
 </Window>

@@ -22,7 +22,7 @@
                 <TextBlock Text="Choose file" Height="19" Width="89" Margin="10,0,0,0" Foreground="#FF0D3957" FontWeight="Bold" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             </StackPanel>
         </Button>
-        <Button x:Name="changeButton" HorizontalAlignment="Left" Height="40" Margin="636,428,0,0" VerticalAlignment="Top" Width="144" FontFamily="Microsoft YaHei" FontSize="16" Click="ChangeButton_Click" Background="#FF82B5FF" Foreground="#FF0D3957" IsEnabled="False">
+        <Button x:Name="changeButton" HorizontalAlignment="Left" Height="40" Margin="636,443,0,0" VerticalAlignment="Top" Width="144" FontFamily="Microsoft YaHei" FontSize="16" Click="ChangeButton_Click" Background="#FF82B5FF" Foreground="#FF0D3957" IsEnabled="False">
             <StackPanel Orientation="Horizontal">
                 <fa:ImageAwesome Icon="Refresh" Height="20">
                     <fa:ImageAwesome.Foreground>
@@ -34,24 +34,24 @@
         </Button>
         <TextBox x:Name="pathBox" Margin="202,65,0,0" TextWrapping="Wrap" Background="#FF82B5FF" FontFamily="Microsoft YaHei" FontSize="18" TextAlignment="Center" Foreground="White" SelectionTextBrush="Black" FontWeight="Bold" Padding="0,5,0,0" HorizontalAlignment="Left" Width="578" Height="40" VerticalAlignment="Top"/>
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="257" Margin="22,141,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="758" FontFamily="Microsoft YaHei" FontSize="16" BorderBrush="#FF82B5FF" BorderThickness="2" VerticalScrollBarVisibility="Auto" IsUndoEnabled="False" IsEnabled="False"/>
-        <Button x:Name="deleteButton" HorizontalAlignment="Left" Height="40" Margin="431,428,0,0" VerticalAlignment="Top" Width="144" FontFamily="Microsoft YaHei" FontSize="16" Click="DeleteButton_Click" Background="#FF82B5FF" Foreground="#FF0D3957" IsEnabled="False">
+        <Button x:Name="deleteButton" HorizontalAlignment="Left" Height="40" Margin="431,443,0,0" VerticalAlignment="Top" Width="144" FontFamily="Microsoft YaHei" FontSize="16" Click="DeleteButton_Click" Background="#FF82B5FF" Foreground="#FF0D3957" IsEnabled="False">
             <StackPanel Orientation="Horizontal">
                 <fa:ImageAwesome Icon="Trash" Height="20" Foreground="#FF0D3957"/>
                 <TextBlock Text="Delete" Height="20" Width="64" Margin="10,0,0,0" Foreground="#FF0D3957" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold"/>
             </StackPanel>
         </Button>
-        <Button x:Name="updateButton" HorizontalAlignment="Left" Height="40" Margin="226,428,0,0" VerticalAlignment="Top" Width="144" FontFamily="Microsoft YaHei" FontSize="16" Click="UpdateButton_Click" Background="#FF82B5FF" Foreground="#FF0D3957" IsEnabled="False">
+        <Button x:Name="updateButton" HorizontalAlignment="Left" Height="40" Margin="226,443,0,0" VerticalAlignment="Top" Width="144" FontFamily="Microsoft YaHei" FontSize="16" Click="UpdateButton_Click" Background="#FF82B5FF" Foreground="#FF0D3957" IsEnabled="False">
             <StackPanel Orientation="Horizontal">
                 <fa:ImageAwesome Icon="Edit" Height="20" Foreground="#FF0D3957"/>
                 <TextBlock Text="Update" Height="20" Width="77" Margin="10,0,0,0" Foreground="#FF0D3957" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold"/>
             </StackPanel>
         </Button>
-        <Button x:Name="saveButton" HorizontalAlignment="Left" Height="40" Margin="22,428,0,0" VerticalAlignment="Top" Width="144" FontFamily="Microsoft YaHei" FontSize="16" Click="SaveButton_Click" Background="#FF82B5FF" Foreground="#FF0D3957" IsEnabled="False">
+        <Button x:Name="saveButton" HorizontalAlignment="Left" Height="40" Margin="22,443,0,0" VerticalAlignment="Top" Width="144" FontFamily="Microsoft YaHei" FontSize="16" Click="SaveButton_Click" Background="#FF82B5FF" Foreground="#FF0D3957" IsEnabled="False">
             <StackPanel Orientation="Horizontal">
                 <fa:ImageAwesome Icon="Save" Height="20" Foreground="#FF0D3957"/>
                 <TextBlock Text="Save as new" Height="20" Width="89" Margin="10,0,0,0" Foreground="#FF0D3957" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold"/>
             </StackPanel>
         </Button>
-
+        <RadioButton x:Name="indentButton" Content="Indent .json" Margin="675,403,0,0" VerticalAlignment="Top" Width="105" IsEnabled="False" FontFamily="Microsoft YaHei" FontSize="14" Click="IndentButton_Click"/>
     </Grid>
 </Window>

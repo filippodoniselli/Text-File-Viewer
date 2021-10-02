@@ -4,6 +4,7 @@ using System.IO;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
+using System.Windows.Controls.Primitives;
 
 namespace xaml_UI
 {
@@ -36,31 +37,20 @@ namespace xaml_UI
                 saveButton.IsEnabled = true;
                 deleteButton.IsEnabled = true;
                 updateButton.IsEnabled = true;
-                if (openFileDialog.FileName.EndsWith(".json")) 
-                {
-                    indentButton.IsEnabled = true;
-                }
+                indentButton.IsChecked = false;
+                indentButton.IsEnabled = true;
+                resetButton.IsEnabled = true;
                 TextFile.Path = openFileDialog.FileName;
             }
         }
 
         private void ChangeButton_Click(object sender, RoutedEventArgs e)
         {
-            textBox.Text = "";
-            pathBox.Text = "";
-            TextFile.Path = "";
-            indentButton.IsEnabled = false;
-            textBox.IsEnabled = false;
-            changeButton.IsEnabled = false;
-            chooseButton.IsEnabled = true;
-            saveButton.IsEnabled = false;
-            deleteButton.IsEnabled = false;
-            updateButton.IsEnabled = false;
+            chooseButton.RaiseEvent(new RoutedEventArgs(ButtonBase.ClickEvent));
         }
-
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            SaveFileDialog saveFileDialog = new SaveFileDialog { Filter = "Text file|*.txt;*.config;*.xml;*.ini|JSON file|*.json" };
+            SaveFileDialog saveFileDialog = new SaveFileDialog { Filter = ".txt, .config, .xml, .ini|*.txt;*.config;*.xml;*.ini|.json|*.json" };
             if ((bool)saveFileDialog.ShowDialog())
             {
                 if (saveFileDialog.FilterIndex == 2)
@@ -106,6 +96,7 @@ namespace xaml_UI
                 textBox.Text = "";
                 pathBox.Text = "";
                 TextFile.Path = "";
+                indentButton.IsChecked = false;
                 indentButton.IsEnabled = false;
                 textBox.IsEnabled = false;
                 changeButton.IsEnabled = false;
@@ -113,6 +104,7 @@ namespace xaml_UI
                 saveButton.IsEnabled = false;
                 deleteButton.IsEnabled = false;
                 updateButton.IsEnabled = false;
+                resetButton.IsEnabled = false;
             }
         }
 
@@ -122,9 +114,8 @@ namespace xaml_UI
             {
                 if (!string.IsNullOrWhiteSpace(textBox.Text))
                 {
-                    string jsonText = textBox.Text.Trim();
-                    if ((jsonText.StartsWith("{") && jsonText.EndsWith("}")) ||
-                        (jsonText.StartsWith("[") && jsonText.EndsWith("]")))
+                    if ((textBox.Text.Trim().StartsWith("{") && textBox.Text.Trim().EndsWith("}")) ||
+                        (textBox.Text.Trim().StartsWith("[") && textBox.Text.Trim().EndsWith("]")))
                     {
                         try
                         {
@@ -152,15 +143,37 @@ namespace xaml_UI
 
         private void IndentButton_Click(object sender, RoutedEventArgs e)
         {
-            try
+            if (!(bool)indentButton.IsChecked)
             {
-                textBox.Text = JToken.Parse(textBox.Text).ToString(Formatting.Indented);
+                try
+                {
+                    textBox.Text = JToken.Parse(textBox.Text).ToString(Formatting.Indented);
+                }
+                catch (JsonReaderException)
+                {
+                    MessageBox.Show("Invalid sintax", "Notice", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                catch (Exception) 
+                {
+                    MessageBox.Show("Invalid sintax", "Notice", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
-            catch (JsonReaderException)
-            {
-                MessageBox.Show("Invalid sintax", "Notice", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+        }
+
+        private void ResetButton_Click(object sender, RoutedEventArgs e)
+        {
+            textBox.Text = "";
+            pathBox.Text = "";
+            TextFile.Path = "";
+            indentButton.IsChecked = false;
             indentButton.IsEnabled = false;
+            textBox.IsEnabled = false;
+            changeButton.IsEnabled = false;
+            chooseButton.IsEnabled = true;
+            saveButton.IsEnabled = false;
+            deleteButton.IsEnabled = false;
+            updateButton.IsEnabled = false;
+            resetButton.IsEnabled = false;
         }
     }
 }

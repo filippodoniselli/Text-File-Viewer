@@ -6,13 +6,13 @@
         xmlns:local="clr-namespace:xaml_UI"
         xmlns:fa="http://schemas.fontawesome.io/icons/"
         mc:Ignorable="d"
-        Title="Text Viewer" Height="664.317" Width="968.408" Icon="file-invoice-solid.ico" Foreground="{x:Null}" Background="{x:Null}" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
+        Title="Text File Viewer" Height="664.317" Width="968.408" Icon="ext_file_generic_filetype_icon_176256.ico" Foreground="{x:Null}" Background="{x:Null}" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
     <Grid Background="#FFB9D1EA" HorizontalAlignment="Left" Width="958">
         <Grid.OpacityMask>
             <SolidColorBrush Color="{DynamicResource MainBackground}"/>
         </Grid.OpacityMask>
         <TextBlock HorizontalAlignment="Left" Height="41" Margin="22,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="900" FontFamily="Microsoft YaHei" RenderTransformOrigin="0.493,0.591" FontWeight="Bold" FontSize="16" Foreground="#FF0D3957" Grid.ColumnSpan="2"><Run Text="Choose a "/><Run Text="file to visualize (.txt, .config, .xml, .json, .ini"/><Run Text=")"/><Run Text=". Then you can save as new, update or delete it. Enjoy!"/></TextBlock>
-        <Button x:Name="chooseButton" Margin="22,65,0,0" FontFamily="Microsoft YaHei" FontSize="16" Click="ChooseButton_Click"  Background="#FF82B5FF" HorizontalAlignment="Left" Width="150" Height="40" VerticalAlignment="Top" Cursor="Hand">
+        <Button x:Name="chooseButton" Margin="22,65,0,0" FontFamily="Microsoft YaHei" FontSize="16" Click="ChooseButton_Click"  Background="#FF82B5FF" Cursor="Hand" HorizontalAlignment="Left" Width="150" Height="40" VerticalAlignment="Top" TabIndex="1">
             <StackPanel Orientation="Horizontal">
                 <fa:ImageAwesome Icon="Search" Height="20">
                     <fa:ImageAwesome.Foreground>
@@ -22,7 +22,7 @@
                 <TextBlock Text="Choose file" Height="19" Width="89" Margin="10,0,0,0" Foreground="#FF0D3957" FontWeight="Bold" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             </StackPanel>
         </Button>
-        <Button x:Name="changeButton" HorizontalAlignment="Left" Margin="585,540,0,0" Width="150" FontFamily="Microsoft YaHei" FontSize="16" Click="ChangeButton_Click" Background="#FF82B5FF" Foreground="#FF0D3957" IsEnabled="False" Cursor="Hand" Height="40" VerticalAlignment="Top">
+        <Button x:Name="changeButton" HorizontalAlignment="Left" Margin="585,540,0,0" Width="150" FontFamily="Microsoft YaHei" FontSize="16" Click="ChangeButton_Click" Background="#FF82B5FF" Foreground="#FF0D3957" IsEnabled="False" Cursor="Hand" Height="40" VerticalAlignment="Top" TabIndex="7">
             <StackPanel Orientation="Horizontal">
                 <fa:ImageAwesome Icon="Refresh" Height="20">
                     <fa:ImageAwesome.Foreground>
@@ -32,28 +32,34 @@
                 <TextBlock Text="Change file" Height="20" Width="81" Margin="10,0,0,0" Foreground="#FF0D3957" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold"/>
             </StackPanel>
         </Button>
-        <TextBlock x:Name="pathBox" Margin="202,65,0,0" TextWrapping="Wrap" Background="#FF82B5FF" FontFamily="Microsoft YaHei" FontSize="16" TextAlignment="Center" Foreground="White" FontWeight="Bold" Padding="0,5,0,0" HorizontalAlignment="Left" Width="720" Height="40" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="359" Margin="22,141,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="900" FontFamily="Microsoft YaHei" FontSize="16" BorderBrush="#FF82B5FF" BorderThickness="2" VerticalScrollBarVisibility="Auto" IsUndoEnabled="True" IsEnabled="False" AcceptsReturn="True" AcceptsTab="True" Grid.ColumnSpan="2"/>
-        <Button x:Name="deleteButton" HorizontalAlignment="Left" Height="40" Margin="398,540,0,0" VerticalAlignment="Top" Width="150" FontFamily="Microsoft YaHei" FontSize="16" Click="DeleteButton_Click" Background="#FF82B5FF" Foreground="#FF0D3957" IsEnabled="False" Cursor="Hand">
+        <TextBlock x:Name="pathBox" Margin="202,65,0,0" TextWrapping="Wrap" Background="#FF82B5FF" FontFamily="Microsoft YaHei" FontSize="16" TextAlignment="Center" Foreground="White" FontWeight="Bold" Padding="0,5,0,0" HorizontalAlignment="Left" Width="720" Height="40" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="359" Margin="22,141,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="900" FontFamily="Microsoft YaHei" FontSize="16" BorderBrush="#FF82B5FF" BorderThickness="2" VerticalScrollBarVisibility="Auto" IsUndoEnabled="True" IsEnabled="False" AcceptsReturn="True" Grid.ColumnSpan="2" TabIndex="2"/>
+        <Button x:Name="deleteButton" HorizontalAlignment="Left" Height="40" Margin="398,540,0,0" VerticalAlignment="Top" Width="150" FontFamily="Microsoft YaHei" FontSize="16" Click="DeleteButton_Click" Background="#FF82B5FF" Foreground="#FF0D3957" IsEnabled="False" Cursor="Hand" TabIndex="6">
             <StackPanel Orientation="Horizontal">
                 <fa:ImageAwesome Icon="Trash" Height="20" Foreground="#FF0D3957"/>
                 <TextBlock Text="Delete" Height="20" Width="64" Margin="10,0,0,0" Foreground="#FF0D3957" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold"/>
             </StackPanel>
         </Button>
-        <Button x:Name="updateButton" HorizontalAlignment="Left" Height="40" Margin="210,540,0,0" VerticalAlignment="Top" Width="150" FontFamily="Microsoft YaHei" FontSize="16" Click="UpdateButton_Click" Background="#FF82B5FF" Foreground="#FF0D3957" IsEnabled="False" Cursor="Hand">
+        <Button x:Name="updateButton" HorizontalAlignment="Left" Height="40" Margin="210,540,0,0" VerticalAlignment="Top" Width="150" FontFamily="Microsoft YaHei" FontSize="16" Click="UpdateButton_Click" Background="#FF82B5FF" Foreground="#FF0D3957" IsEnabled="False" Cursor="Hand" TabIndex="5">
             <StackPanel Orientation="Horizontal">
                 <fa:ImageAwesome Icon="Edit" Height="20" Foreground="#FF0D3957"/>
                 <TextBlock Text="Update" Height="20" Width="77" Margin="10,0,0,0" Foreground="#FF0D3957" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold"/>
             </StackPanel>
         </Button>
-        <Button x:Name="saveButton" HorizontalAlignment="Left" Height="40" Margin="22,540,0,0" VerticalAlignment="Top" Width="150" FontFamily="Microsoft YaHei" FontSize="16" Click="SaveButton_Click" Background="#FF82B5FF" Foreground="#FF0D3957" IsEnabled="False" Cursor="Hand">
+        <Button x:Name="saveButton" HorizontalAlignment="Left" Height="40" Margin="22,540,0,0" VerticalAlignment="Top" Width="150" FontFamily="Microsoft YaHei" FontSize="16" Click="SaveButton_Click" Background="#FF82B5FF" Foreground="#FF0D3957" IsEnabled="False" Cursor="Hand" TabIndex="4">
             <StackPanel Orientation="Horizontal">
                 <fa:ImageAwesome Icon="Save" Height="20" Foreground="#FF0D3957"/>
                 <TextBlock Text="Save as new" Height="20" Width="89" Margin="10,0,0,0" Foreground="#FF0D3957" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold"/>
             </StackPanel>
         </Button>
-        <RadioButton x:Name="indentButton" Content="Indent .json" Margin="817,505,0,0" VerticalAlignment="Top" IsEnabled="False" FontFamily="Microsoft YaHei" FontSize="14" Click="IndentButton_Click" Height="17" Cursor="Hand" HorizontalAlignment="Left" Width="141" Grid.ColumnSpan="2"/>
-        <Button x:Name="resetButton" HorizontalAlignment="Left" Margin="772,540,0,0" Width="150" FontFamily="Microsoft YaHei" FontSize="16" Click="ResetButton_Click" Background="#FF82B5FF" Foreground="#FF0D3957" IsEnabled="False" Cursor="Hand" Height="40" VerticalAlignment="Top">
+        <Button x:Name="indentButton" Margin="804,505,0,0" VerticalAlignment="Top" IsEnabled="False" FontFamily="Microsoft YaHei" FontSize="12" Click="IndentButton_Click" Background="#FF82B5FF" Foreground="#FF0D3957" Height="23" Cursor="Hand" HorizontalAlignment="Left" Width="118" TabIndex="3">
+            <StackPanel Orientation="Horizontal">
+                <fa:ImageAwesome Icon="Indent" Height="10" Foreground="#FF0D3957" Width="20"/>
+                <TextBlock Text="Indent as .json" Height="17" Width="89" Margin="3,0,0,0" Foreground="#FF0D3957" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12
+                           " FontWeight="Bold"/>
+            </StackPanel>
+        </Button>
+        <Button x:Name="resetButton" HorizontalAlignment="Left" Margin="772,540,0,0" Width="150" FontFamily="Microsoft YaHei" FontSize="16" Click="ResetButton_Click" Background="#FF82B5FF" Foreground="#FF0D3957" IsEnabled="False" Cursor="Hand" Height="40" VerticalAlignment="Top" TabIndex="8">
             <StackPanel Orientation="Horizontal">
                 <fa:ImageAwesome Icon="Eraser" Height="20" Foreground="#FF0D3957"/>
                 <TextBlock Text="Reset" Height="20" Width="70" Margin="10,0,0,0" Foreground="#FF0D3957" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Bold"/>

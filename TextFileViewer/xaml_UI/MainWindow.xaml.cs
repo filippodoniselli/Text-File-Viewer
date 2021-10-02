@@ -5,6 +5,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Windows.Controls.Primitives;
+using System.Text;
 
 namespace xaml_UI
 {
@@ -37,7 +38,6 @@ namespace xaml_UI
                 saveButton.IsEnabled = true;
                 deleteButton.IsEnabled = true;
                 updateButton.IsEnabled = true;
-                indentButton.IsChecked = false;
                 indentButton.IsEnabled = true;
                 resetButton.IsEnabled = true;
                 TextFile.Path = openFileDialog.FileName;
@@ -64,8 +64,8 @@ namespace xaml_UI
                             try
                             {
                                 var obj = JToken.Parse(textBox.Text);
-                                File.WriteAllText(TextFile.Path, textBox.Text);
-                                MessageBox.Show("File json saved", "Notice", MessageBoxButton.OK, MessageBoxImage.Information);
+                                File.WriteAllText(saveFileDialog.FileName, textBox.Text);
+                                MessageBox.Show("File succesfully saved", "Notice", MessageBoxButton.OK, MessageBoxImage.Information);
                             }
                             catch (JsonReaderException)
                             {
@@ -76,6 +76,10 @@ namespace xaml_UI
                         {
                             MessageBox.Show("Invalid sintax", "Notice", MessageBoxButton.OK, MessageBoxImage.Error);
                         }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalid sintax", "Notice", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                 }
                 else
@@ -96,7 +100,6 @@ namespace xaml_UI
                 textBox.Text = "";
                 pathBox.Text = "";
                 TextFile.Path = "";
-                indentButton.IsChecked = false;
                 indentButton.IsEnabled = false;
                 textBox.IsEnabled = false;
                 changeButton.IsEnabled = false;
@@ -143,20 +146,17 @@ namespace xaml_UI
 
         private void IndentButton_Click(object sender, RoutedEventArgs e)
         {
-            if (!(bool)indentButton.IsChecked)
+            try
             {
-                try
-                {
-                    textBox.Text = JToken.Parse(textBox.Text).ToString(Formatting.Indented);
-                }
-                catch (JsonReaderException)
-                {
-                    MessageBox.Show("Invalid sintax", "Notice", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-                catch (Exception) 
-                {
-                    MessageBox.Show("Invalid sintax", "Notice", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
+                textBox.Text = JToken.Parse(textBox.Text).ToString(Formatting.Indented);
+            }
+            catch (JsonReaderException)
+            {
+                MessageBox.Show("Invalid sintax", "Notice", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            catch (Exception) 
+            {
+                MessageBox.Show("Invalid sintax", "Notice", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -165,7 +165,6 @@ namespace xaml_UI
             textBox.Text = "";
             pathBox.Text = "";
             TextFile.Path = "";
-            indentButton.IsChecked = false;
             indentButton.IsEnabled = false;
             textBox.IsEnabled = false;
             changeButton.IsEnabled = false;

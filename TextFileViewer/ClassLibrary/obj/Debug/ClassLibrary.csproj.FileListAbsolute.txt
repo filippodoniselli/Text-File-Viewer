@@ -1,0 +1,9 @@
+C:\Users\Filippo\Documents\Git\Text_File_Viewer\TextFileViewer\ClassLibrary\bin\Debug\ClassLibrary.dll
+C:\Users\Filippo\Documents\Git\Text_File_Viewer\TextFileViewer\ClassLibrary\bin\Debug\ClassLibrary.pdb
+C:\Users\Filippo\Documents\Git\Text_File_Viewer\TextFileViewer\ClassLibrary\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Filippo\Documents\Git\Text_File_Viewer\TextFileViewer\ClassLibrary\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Filippo\Documents\Git\Text_File_Viewer\TextFileViewer\ClassLibrary\obj\Debug\ClassLibrary.csprojAssemblyReference.cache
+C:\Users\Filippo\Documents\Git\Text_File_Viewer\TextFileViewer\ClassLibrary\obj\Debug\ClassLibrary.csproj.CoreCompileInputs.cache
+C:\Users\Filippo\Documents\Git\Text_File_Viewer\TextFileViewer\ClassLibrary\obj\Debug\ClassLibrary.csproj.CopyComplete
+C:\Users\Filippo\Documents\Git\Text_File_Viewer\TextFileViewer\ClassLibrary\obj\Debug\ClassLibrary.dll
+C:\Users\Filippo\Documents\Git\Text_File_Viewer\TextFileViewer\ClassLibrary\obj\Debug\ClassLibrary.pdb

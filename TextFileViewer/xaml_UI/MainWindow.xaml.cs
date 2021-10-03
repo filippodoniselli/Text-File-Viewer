@@ -1,11 +1,8 @@
 ﻿using System.Windows;
 using Microsoft.Win32;
 using System.IO;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System;
 using System.Windows.Controls.Primitives;
-using System.Text;
+using ClassLibrary;
 
 namespace xaml_UI
 {
@@ -25,6 +22,7 @@ namespace xaml_UI
 
             public static string Path { get => path; set => path = value; }
         }
+
         private void ChooseButton_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog { Filter = "Valid text extensions|*.txt;*.config;*.xml;*.json;*.ini" };
@@ -41,52 +39,6 @@ namespace xaml_UI
                 indentButton.IsEnabled = true;
                 resetButton.IsEnabled = true;
                 TextFile.Path = openFileDialog.FileName;
-            }
-        }
-
-        private void ChangeButton_Click(object sender, RoutedEventArgs e)
-        {
-            chooseButton.RaiseEvent(new RoutedEventArgs(ButtonBase.ClickEvent));
-        }
-        private void SaveButton_Click(object sender, RoutedEventArgs e)
-        {
-            SaveFileDialog saveFileDialog = new SaveFileDialog { Filter = ".txt, .config, .xml, .ini|*.txt;*.config;*.xml;*.ini|.json|*.json" };
-            if ((bool)saveFileDialog.ShowDialog())
-            {
-                if (saveFileDialog.FilterIndex == 2)
-                {
-                    if (!string.IsNullOrWhiteSpace(textBox.Text))
-                    {
-                        string jsonText = textBox.Text.Trim();
-                        if ((jsonText.StartsWith("{") && jsonText.EndsWith("}")) ||
-                            (jsonText.StartsWith("[") && jsonText.EndsWith("]")))
-                        {
-                            try
-                            {
-                                var obj = JToken.Parse(textBox.Text);
-                                File.WriteAllText(saveFileDialog.FileName, textBox.Text);
-                                MessageBox.Show("File succesfully saved", "Notice", MessageBoxButton.OK, MessageBoxImage.Information);
-                            }
-                            catch (JsonReaderException)
-                            {
-                                MessageBox.Show("Invalid sintax", "Notice", MessageBoxButton.OK, MessageBoxImage.Error);
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show("Invalid sintax", "Notice", MessageBoxButton.OK, MessageBoxImage.Error);
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Invalid sintax", "Notice", MessageBoxButton.OK, MessageBoxImage.Error);
-                    }
-                }
-                else
-                {
-                    File.WriteAllText(saveFileDialog.FileName, textBox.Text);
-                    MessageBox.Show("File succesfully saved", "Notice", MessageBoxButton.OK, MessageBoxImage.Information);
-                }
             }
         }
 
@@ -111,55 +63,6 @@ namespace xaml_UI
             }
         }
 
-        private void UpdateButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (TextFile.Path.EndsWith(".json"))
-            {
-                if (!string.IsNullOrWhiteSpace(textBox.Text))
-                {
-                    if ((textBox.Text.Trim().StartsWith("{") && textBox.Text.Trim().EndsWith("}")) ||
-                        (textBox.Text.Trim().StartsWith("[") && textBox.Text.Trim().EndsWith("]")))
-                    {
-                        try
-                        {
-                            var obj = JToken.Parse(textBox.Text);
-                            File.WriteAllText(TextFile.Path, textBox.Text);
-                            MessageBox.Show("File succesfully updated", "Notice", MessageBoxButton.OK, MessageBoxImage.Information);
-                        }
-                        catch (JsonReaderException)
-                        {
-                            MessageBox.Show("Invalid sintax", "Notice", MessageBoxButton.OK, MessageBoxImage.Error);
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Invalid sintax", "Notice", MessageBoxButton.OK, MessageBoxImage.Error);
-                    }
-                }
-            }
-            else
-            {
-                File.WriteAllText(TextFile.Path, textBox.Text);
-                MessageBox.Show("File succesfully updated", "Notice", MessageBoxButton.OK, MessageBoxImage.Information);
-            }
-        }
-
-        private void IndentButton_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                textBox.Text = JToken.Parse(textBox.Text).ToString(Formatting.Indented);
-            }
-            catch (JsonReaderException)
-            {
-                MessageBox.Show("Invalid sintax", "Notice", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            catch (Exception) 
-            {
-                MessageBox.Show("Invalid sintax", "Notice", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
-
         private void ResetButton_Click(object sender, RoutedEventArgs e)
         {
             textBox.Text = "";
@@ -174,5 +77,14 @@ namespace xaml_UI
             updateButton.IsEnabled = false;
             resetButton.IsEnabled = false;
         }
+        private void ChangeButton_Click(object sender, RoutedEventArgs e) => chooseButton.RaiseEvent(new RoutedEventArgs(ButtonBase.ClickEvent));
+        
+        private void SaveButton_Click(object sender, RoutedEventArgs e) => ButtonFunctions.SaveFile(textBox.Text);
+
+        private void UpdateButton_Click(object sender, RoutedEventArgs e) => ButtonFunctions.UpdateFile(TextFile.Path, textBox.Text);
+
+        private void IndentButton_Click(object sender, RoutedEventArgs e) => textBox.Text = ButtonFunctions.IndentJSON(textBox.Text);
+
+
     }
 }

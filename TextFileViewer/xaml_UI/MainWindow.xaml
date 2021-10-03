@@ -33,7 +33,7 @@
             </StackPanel>
         </Button>
         <TextBlock x:Name="pathBox" Margin="202,65,0,0" TextWrapping="Wrap" Background="#FF82B5FF" FontFamily="Microsoft YaHei" FontSize="16" TextAlignment="Center" Foreground="White" FontWeight="Bold" Padding="0,5,0,0" HorizontalAlignment="Left" Width="720" Height="40" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="359" Margin="22,141,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="900" FontFamily="Microsoft YaHei" FontSize="16" BorderBrush="#FF82B5FF" BorderThickness="2" VerticalScrollBarVisibility="Auto" IsUndoEnabled="True" IsEnabled="False" AcceptsReturn="True" Grid.ColumnSpan="2" TabIndex="2"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="359" Margin="22,141,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="900" FontFamily="Microsoft YaHei" FontSize="16" BorderBrush="#FF82B5FF" BorderThickness="2" VerticalScrollBarVisibility="Auto" IsUndoEnabled="True" IsEnabled="False" AcceptsReturn="True" Grid.ColumnSpan="2" TabIndex="2" Cursor="IBeam"/>
         <Button x:Name="deleteButton" HorizontalAlignment="Left" Height="40" Margin="398,540,0,0" VerticalAlignment="Top" Width="150" FontFamily="Microsoft YaHei" FontSize="16" Click="DeleteButton_Click" Background="#FF82B5FF" Foreground="#FF0D3957" IsEnabled="False" Cursor="Hand" TabIndex="6">
             <StackPanel Orientation="Horizontal">
                 <fa:ImageAwesome Icon="Trash" Height="20" Foreground="#FF0D3957"/>

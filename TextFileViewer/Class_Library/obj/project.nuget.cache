@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "dw8nuMa8IevhxCRfN56axIvvrns9Xgrk5rvb1pJZZ5XSq9Q0hNtOPybua6svZtutYiChO/YAqFHE6g9bwb7vRg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Filippo\\Documents\\Git\\Text_File_Viewer\\TextFileViewer\\Class_Library\\Class_Library.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Filippo\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}

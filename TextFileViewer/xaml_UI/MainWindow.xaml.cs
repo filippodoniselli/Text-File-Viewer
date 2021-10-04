@@ -90,5 +90,10 @@ namespace xaml_UI
         {
             Close();
         }
+
+        private void Draggable(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            DragMove();
+        }
     }
 }

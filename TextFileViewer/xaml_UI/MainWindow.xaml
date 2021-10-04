@@ -32,7 +32,7 @@
         </Style>
     </Window.Resources>
     <Grid Background="#FF0D3957" Margin="0,0,0,0">
-        <Grid  WindowChrome.IsHitTestVisibleInChrome="True" Background="#FF0D3957" HorizontalAlignment="Center" VerticalAlignment="Top" Width="958" Height="35" IsEnabled="True">
+        <Grid  WindowChrome.IsHitTestVisibleInChrome="True" Background="#FF0D3957" HorizontalAlignment="Center" VerticalAlignment="Top" Width="958" Height="35" IsEnabled="True" MouseLeftButtonDown="Draggable">
             <Image Source="AppIcon.ico" HorizontalAlignment="Left" Stretch="Uniform" Margin="10,0,0,0" Width="33"/>
             <TextBlock HorizontalAlignment="Left" Text="Text File Viewer" Margin="48,3,0,0" FontSize="16" Foreground="#FFB9D1EA" FontWeight="Bold" Height="26"/>
             <Button x:Name="minimizeButton"  Cursor="Hand" Click="MinimizeWindow" IsEnabled="True" HorizontalAlignment="Right" Width="26" Height="20" Background="#FFB9D1EA" Margin="0,0,34,0" Padding="2,4,2,4">

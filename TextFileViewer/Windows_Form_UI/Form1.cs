@@ -1,30 +1,24 @@
 ﻿using System.IO;
 using System.Windows.Forms;
 using System;
-using System.ComponentModel;
 using System.Windows;
 using ClassLibrary;
+using System.Windows.Media;
+using System.Drawing;
+using SystemColors = System.Drawing.SystemColors;
 
 namespace Windows_Form_UI
 {
     public partial class Form1 : Form
     {
+        public static string Path { get; set; }
+        
         public Form1()
         {
             InitializeComponent();
         }
 
-        public static class TextFile
-        {
-            private static string path = "";
-
-            public static string Path { get => path; set => path = value; }
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
+        private void Form1_Load(object sender, EventArgs e) {}
 
         private void ChooseFile(object sender, EventArgs e)
         {
@@ -41,7 +35,7 @@ namespace Windows_Form_UI
                 updateButton.Enabled = true;
                 indentButton.Enabled = true;
                 resetButton.Enabled = true;
-                TextFile.Path = openFileDialog.FileName;
+                Path = openFileDialog.FileName;
             }
         }
 
@@ -54,7 +48,7 @@ namespace Windows_Form_UI
         {
             textBox.Text = "";
             pathBox.Text = "";
-            TextFile.Path = "";
+            Path = "";
             indentButton.Enabled = false;
             textBox.Enabled = false;
             changeButton.Enabled = false;
@@ -70,11 +64,11 @@ namespace Windows_Form_UI
             MessageBoxResult confirm = System.Windows.MessageBox.Show("Are you sure to delete this file?", "Notice", MessageBoxButton.YesNo, MessageBoxImage.Exclamation);
             if (confirm == MessageBoxResult.Yes)
             {
-                File.Delete(TextFile.Path);
+                File.Delete(Path);
                 System.Windows.MessageBox.Show("File succesfully deleted", "Notice", MessageBoxButton.OK, MessageBoxImage.Information);
                 textBox.Text = "";
                 pathBox.Text = "";
-                TextFile.Path = "";
+                Path = "";
                 indentButton.Enabled = false;
                 textBox.Enabled = false;
                 changeButton.Enabled = false;
@@ -92,10 +86,60 @@ namespace Windows_Form_UI
             chooseButton.PerformClick();
             chooseButton.Enabled = false;
         }
-        private void SaveClick(object sender, EventArgs e) => ButtonFunctions.SaveFile(textBox.Text);
+        private void SaveClick(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog { Filter = ".txt, .config, .xml, .ini|*.txt;*.config;*.xml;*.ini|.json|*.json" };
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                bool result = ButtonFunctions.SaveFile(saveFileDialog.FileName, textBox.Text);
+                System.Windows.MessageBox.Show(result ? "File succesfully saved" : "Invalid sintax", "Notice", MessageBoxButton.OK, result ? MessageBoxImage.Information : MessageBoxImage.Error);
+            }
+        }
 
-        private void UpdateClick(object sender, EventArgs e) => ButtonFunctions.UpdateFile(TextFile.Path, textBox.Text);
+        private void UpdateClick(object sender, EventArgs e)
+        {
+            bool result = ButtonFunctions.UpdateFile(Path, textBox.Text);
+            System.Windows.MessageBox.Show(result ? "File succesfully updated" : "Invalid sintax", "Notice", MessageBoxButton.OK, result ? MessageBoxImage.Information : MessageBoxImage.Error);
+        }
 
         private void IndentClick(object sender, EventArgs e) => textBox.Text = ButtonFunctions.IndentJSON(textBox.Text);
+
+        private void ButtonStyle(object sender, EventArgs e)
+        {
+            if (textBox.Enabled)
+            {
+                chooseButton.BackColor = SystemColors.Control;
+                chooseButton.ForeColor = SystemColors.ControlDarkDark;
+                changeButton.BackColor = SystemColors.GradientActiveCaption;
+                changeButton.ForeColor = SystemColors.ControlText;
+                indentButton.BackColor = SystemColors.GradientActiveCaption;
+                indentButton.ForeColor = SystemColors.ControlText;
+                saveButton.BackColor = SystemColors.GradientActiveCaption;
+                saveButton.ForeColor = SystemColors.ControlText;
+                deleteButton.BackColor = SystemColors.GradientActiveCaption;
+                deleteButton.ForeColor = SystemColors.ControlText;
+                updateButton.BackColor = SystemColors.GradientActiveCaption;
+                updateButton.ForeColor = SystemColors.ControlText;
+                resetButton.BackColor = SystemColors.GradientActiveCaption;
+                resetButton.ForeColor = SystemColors.ControlText;
+            }
+            else
+            {
+                chooseButton.BackColor = SystemColors.GradientActiveCaption;
+                chooseButton.ForeColor = SystemColors.ControlText;
+                changeButton.BackColor = SystemColors.Control;
+                changeButton.ForeColor = SystemColors.ControlDarkDark;
+                indentButton.BackColor = SystemColors.Control;
+                indentButton.ForeColor = SystemColors.ControlDarkDark;
+                saveButton.BackColor = SystemColors.Control;
+                saveButton.ForeColor = SystemColors.ControlDarkDark;
+                deleteButton.BackColor = SystemColors.Control;
+                deleteButton.ForeColor = SystemColors.ControlDarkDark;
+                updateButton.BackColor = SystemColors.Control;
+                updateButton.ForeColor = SystemColors.ControlDarkDark;
+                resetButton.BackColor = SystemColors.Control;
+                resetButton.ForeColor = SystemColors.ControlDarkDark;
+            }
+        }
     }
 }

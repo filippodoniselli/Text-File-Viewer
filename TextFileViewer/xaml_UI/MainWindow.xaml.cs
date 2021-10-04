@@ -11,16 +11,11 @@ namespace xaml_UI
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static string Path { get; set; }
+        
         public MainWindow()
         {
             InitializeComponent();
-        }
-
-        public static class TextFile
-        {
-            private static string path = "";
-
-            public static string Path { get => path; set => path = value; }
         }
 
         private void ChooseButton_Click(object sender, RoutedEventArgs e)
@@ -38,7 +33,7 @@ namespace xaml_UI
                 updateButton.IsEnabled = true;
                 indentButton.IsEnabled = true;
                 resetButton.IsEnabled = true;
-                TextFile.Path = openFileDialog.FileName;
+                Path = openFileDialog.FileName;
             }
         }
 
@@ -47,19 +42,9 @@ namespace xaml_UI
             MessageBoxResult confirm = MessageBox.Show("Are you sure to delete this file?", "Notice", MessageBoxButton.YesNo, MessageBoxImage.Exclamation);
             if (confirm == MessageBoxResult.Yes)
             {
-                File.Delete(TextFile.Path);
+                File.Delete(Path);
                 MessageBox.Show("File succesfully deleted", "Notice", MessageBoxButton.OK, MessageBoxImage.Information);
-                textBox.Text = "";
-                pathBox.Text = "";
-                TextFile.Path = "";
-                indentButton.IsEnabled = false;
-                textBox.IsEnabled = false;
-                changeButton.IsEnabled = false;
-                chooseButton.IsEnabled = true;
-                saveButton.IsEnabled = false;
-                deleteButton.IsEnabled = false;
-                updateButton.IsEnabled = false;
-                resetButton.IsEnabled = false;
+                resetButton.RaiseEvent(new RoutedEventArgs(ButtonBase.ClickEvent));
             }
         }
 
@@ -67,7 +52,7 @@ namespace xaml_UI
         {
             textBox.Text = "";
             pathBox.Text = "";
-            TextFile.Path = "";
+            Path = "";
             indentButton.IsEnabled = false;
             textBox.IsEnabled = false;
             changeButton.IsEnabled = false;
@@ -78,13 +63,32 @@ namespace xaml_UI
             resetButton.IsEnabled = false;
         }
         private void ChangeButton_Click(object sender, RoutedEventArgs e) => chooseButton.RaiseEvent(new RoutedEventArgs(ButtonBase.ClickEvent));
-        
-        private void SaveButton_Click(object sender, RoutedEventArgs e) => ButtonFunctions.SaveFile(textBox.Text);
 
-        private void UpdateButton_Click(object sender, RoutedEventArgs e) => ButtonFunctions.UpdateFile(TextFile.Path, textBox.Text);
+        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog { Filter = ".txt, .config, .xml, .ini|*.txt;*.config;*.xml;*.ini|.json|*.json" };
+            if ((bool)saveFileDialog.ShowDialog())
+            {
+                bool result = ButtonFunctions.SaveFile(saveFileDialog.FileName, textBox.Text);
+                MessageBox.Show(result ? "File succesfully saved" : "Invalid sintax", "Notice", MessageBoxButton.OK, result ? MessageBoxImage.Information : MessageBoxImage.Error );
+            }
+        }
 
+        private void UpdateButton_Click(object sender, RoutedEventArgs e)
+        {
+            bool result = ButtonFunctions.UpdateFile(Path, textBox.Text);
+            MessageBox.Show(result ? "File succesfully updated" : "Invalid sintax", "Notice", MessageBoxButton.OK, result ? MessageBoxImage.Information : MessageBoxImage.Error);
+        }
         private void IndentButton_Click(object sender, RoutedEventArgs e) => textBox.Text = ButtonFunctions.IndentJSON(textBox.Text);
 
+        private void MinimizeWindow(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+        }
 
+        private void CloseWindow(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }

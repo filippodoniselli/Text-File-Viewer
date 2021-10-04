@@ -1,7 +1,4 @@
-﻿using System;
-using System.Windows;
-using Microsoft.Win32;
-using System.IO;
+﻿using System.IO;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -9,47 +6,44 @@ namespace ClassLibrary
 {
     public class ButtonFunctions
     {
-        public static void SaveFile(string content)
+        public static bool SaveFile(string path, string content)
         {
-            SaveFileDialog saveFileDialog = new SaveFileDialog { Filter = ".txt, .config, .xml, .ini|*.txt;*.config;*.xml;*.ini|.json|*.json" };
-            if ((bool)saveFileDialog.ShowDialog())
+            if (path.EndsWith(".json"))
             {
-                if (saveFileDialog.FilterIndex == 2)
+            
+                if (!string.IsNullOrWhiteSpace(content))
                 {
-                    if (!string.IsNullOrWhiteSpace(content))
+                    if ((content.Trim().StartsWith("{") && content.Trim().EndsWith("}")) ||
+                        (content.Trim().StartsWith("[") && content.Trim().EndsWith("]")))
                     {
-                        if ((content.Trim().StartsWith("{") && content.Trim().EndsWith("}")) ||
-                            (content.Trim().StartsWith("[") && content.Trim().EndsWith("]")))
+                        try
                         {
-                            try
-                            {
-                                var obj = JToken.Parse(content);
-                                File.WriteAllText(saveFileDialog.FileName, content);
-                                MessageBox.Show("File succesfully saved", "Notice", MessageBoxButton.OK, MessageBoxImage.Information);
-                            }
-                            catch (JsonReaderException)
-                            {
-                                MessageBox.Show("Invalid sintax", "Notice", MessageBoxButton.OK, MessageBoxImage.Error);
-                            }
+                            var obj = JToken.Parse(content);
+                            File.WriteAllText(path, content);
+                            return true;
                         }
-                        else
+                        catch (JsonReaderException)
                         {
-                            MessageBox.Show("Invalid sintax", "Notice", MessageBoxButton.OK, MessageBoxImage.Error);
+                            return false;
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Invalid sintax", "Notice", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return false;
                     }
                 }
                 else
                 {
-                    File.WriteAllText(saveFileDialog.FileName, content);
-                    MessageBox.Show("File succesfully saved", "Notice", MessageBoxButton.OK, MessageBoxImage.Information);
+                    return false;
                 }
             }
+            else
+            {
+                File.WriteAllText(path, content);
+                return true;
+            }
         }
-        public static void UpdateFile(string path, string content)
+        public static bool UpdateFile(string path, string content)
         {
             if (path.EndsWith(".json"))
             {
@@ -62,25 +56,39 @@ namespace ClassLibrary
                         {
                             var obj = JToken.Parse(content);
                             File.WriteAllText(path, content);
-                            MessageBox.Show("File succesfully updated", "Notice", MessageBoxButton.OK, MessageBoxImage.Information);
+                            return true;
                         }
                         catch (JsonReaderException)
                         {
-                            MessageBox.Show("Invalid sintax", "Notice", MessageBoxButton.OK, MessageBoxImage.Error);
+                            return false;
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Invalid sintax", "Notice", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return false;
                     }
+                }
+                else 
+                {
+                    return false;
                 }
             }
             else
             {
                 File.WriteAllText(path, content);
-                MessageBox.Show("File succesfully updated", "Notice", MessageBoxButton.OK, MessageBoxImage.Information);
+                return true;
             }
         }
-        public static string IndentJSON(string content) => JToken.Parse(content).ToString(Formatting.Indented);
+        public static string IndentJSON(string content) 
+        {
+            try
+            {
+                return JToken.Parse(content).ToString(Formatting.Indented);
+            }
+            catch 
+            {
+                return content;
+            }
+        }
     }
 }

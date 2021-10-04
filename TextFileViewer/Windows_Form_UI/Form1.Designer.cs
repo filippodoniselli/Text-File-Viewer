@@ -73,11 +73,11 @@ namespace Windows_Form_UI
             // 
             // resetButton
             // 
-            this.resetButton.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.resetButton.BackColor = System.Drawing.SystemColors.Control;
             this.resetButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.resetButton.Enabled = false;
             this.resetButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.resetButton.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.resetButton.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.resetButton.Image = ((System.Drawing.Image)(resources.GetObject("resetButton.Image")));
             this.resetButton.Location = new System.Drawing.Point(774, 551);
             this.resetButton.Name = "resetButton";
@@ -99,10 +99,12 @@ namespace Windows_Form_UI
             this.textBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.textBox.Size = new System.Drawing.Size(900, 359);
             this.textBox.TabIndex = 2;
+            this.textBox.EnabledChanged += new System.EventHandler(this.ButtonStyle);
             // 
             // pathBox
             // 
             this.pathBox.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pathBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.pathBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pathBox.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.pathBox.Location = new System.Drawing.Point(200, 87);
@@ -112,15 +114,14 @@ namespace Windows_Form_UI
             this.pathBox.Size = new System.Drawing.Size(724, 33);
             this.pathBox.TabIndex = 78;
             this.pathBox.TabStop = false;
-            this.pathBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // changeButton
             // 
-            this.changeButton.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.changeButton.BackColor = System.Drawing.SystemColors.Control;
             this.changeButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.changeButton.Enabled = false;
             this.changeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.changeButton.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.changeButton.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.changeButton.Image = ((System.Drawing.Image)(resources.GetObject("changeButton.Image")));
             this.changeButton.Location = new System.Drawing.Point(586, 551);
             this.changeButton.Name = "changeButton";
@@ -134,11 +135,11 @@ namespace Windows_Form_UI
             // 
             // deleteButton
             // 
-            this.deleteButton.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.deleteButton.BackColor = System.Drawing.SystemColors.Control;
             this.deleteButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.deleteButton.Enabled = false;
             this.deleteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deleteButton.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.deleteButton.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.deleteButton.Image = ((System.Drawing.Image)(resources.GetObject("deleteButton.Image")));
             this.deleteButton.Location = new System.Drawing.Point(399, 551);
             this.deleteButton.Name = "deleteButton";
@@ -152,11 +153,11 @@ namespace Windows_Form_UI
             // 
             // updateButton
             // 
-            this.updateButton.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.updateButton.BackColor = System.Drawing.SystemColors.Control;
             this.updateButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.updateButton.Enabled = false;
             this.updateButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.updateButton.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.updateButton.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.updateButton.Image = ((System.Drawing.Image)(resources.GetObject("updateButton.Image")));
             this.updateButton.Location = new System.Drawing.Point(211, 551);
             this.updateButton.Name = "updateButton";
@@ -170,11 +171,11 @@ namespace Windows_Form_UI
             // 
             // saveButton
             // 
-            this.saveButton.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.saveButton.BackColor = System.Drawing.SystemColors.Control;
             this.saveButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.saveButton.Enabled = false;
             this.saveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.saveButton.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.saveButton.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.saveButton.Image = ((System.Drawing.Image)(resources.GetObject("saveButton.Image")));
             this.saveButton.Location = new System.Drawing.Point(24, 551);
             this.saveButton.Name = "saveButton";
@@ -188,11 +189,11 @@ namespace Windows_Form_UI
             // 
             // indentButton
             // 
-            this.indentButton.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.indentButton.BackColor = System.Drawing.SystemColors.Control;
             this.indentButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.indentButton.Enabled = false;
             this.indentButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.indentButton.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.indentButton.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.indentButton.Image = ((System.Drawing.Image)(resources.GetObject("indentButton.Image")));
             this.indentButton.Location = new System.Drawing.Point(806, 509);
             this.indentButton.Name = "indentButton";
@@ -202,6 +203,7 @@ namespace Windows_Form_UI
             this.indentButton.TextAlign = System.Drawing.ContentAlignment.TopRight;
             this.indentButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.indentButton.UseVisualStyleBackColor = false;
+            this.indentButton.Click += new System.EventHandler(this.IndentClick);
             // 
             // Form1
             // 
@@ -220,7 +222,7 @@ namespace Windows_Form_UI
             this.Controls.Add(this.resetButton);
             this.Controls.Add(this.chooseButton);
             this.Controls.Add(this.instructionLabel);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Form1";
